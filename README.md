@@ -1,0 +1,6 @@
+BungeeRcon
+==========
+
+Rcon for BungeeCord
+
+=========================

@@ -1,0 +1,4 @@
+name: BungeeRcon
+main: net.borlcand.rcon.Rcon
+version: 2.1
+author: BorlCand Limited
