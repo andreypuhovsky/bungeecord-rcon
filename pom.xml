@@ -6,17 +6,17 @@
 
     <groupId>net.borlcand.rcon</groupId>
     <artifactId>BungeeRcon</artifactId>
-    <version>2.1</version>
+    <version>2.2</version>
 
     <repositories>
         <repository>
             <id>bungeecord-repo</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
-        <!--repository>
-            <id>yamler-repo</id>
-            <url>http://nexus.cube-space.net/content/groups/public</url>
-        </repository-->
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <build>
@@ -44,6 +44,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.github.Exlll.ConfigLib</groupId>
+            <artifactId>configlib-yaml</artifactId>
+            <version>v4.2.0</version>
+        </dependency>
+        <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>${netty.version}</version>
@@ -56,19 +61,10 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>net.cubespace</groupId>
-            <artifactId>Yamler-Core</artifactId>
-            <version>2.2.3-SNAPSHOT</version>
-            <scope>system</scope>
-            <type>jar</type>
-            <systemPath>${project.basedir}/lib/Yamler.jar</systemPath>
-        </dependency>
-        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.3.1</version>
         </dependency>
-
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

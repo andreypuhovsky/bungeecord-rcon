@@ -1,15 +1,11 @@
 package net.borlcand.rcon.config;
 
-import java.io.File;
-import net.borlcand.rcon.Rcon;
-import net.cubespace.Yamler.Config.Comment;
-import net.cubespace.Yamler.Config.Config;
+import de.exlll.configlib.Comment;
+import de.exlll.configlib.Configuration;
 
-public class MainConfig extends Config {
+@Configuration
+public class MainConfig {
 
-    public MainConfig() {
-        CONFIG_FILE = new File(Rcon.instance.getDataFolder(), "config.yml");
-    }
 
     @Comment("If you want to disable RCON listener")
     public Boolean Rcon_Enabled = true;
