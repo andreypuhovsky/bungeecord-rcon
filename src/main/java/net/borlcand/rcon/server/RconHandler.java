@@ -3,6 +3,7 @@ package net.borlcand.rcon.server;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import net.borlcand.rcon.config.ConfigManager;
 import net.md_5.bungee.api.ChatColor;
 
 import java.io.IOException;
@@ -10,7 +11,6 @@ import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import net.borlcand.rcon.commandsender.RconCommandSender;
-import net.borlcand.rcon.config.ConfigManager;
 
 public class RconHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
@@ -86,7 +86,7 @@ public class RconHandler extends SimpleChannelInboundHandler<ByteBuf> {
         if (rconServer.getServer().getPluginManager().dispatchCommand(commandSender, payload)) {
             String message = commandSender.flush();
             
-            if (!ConfigManager.main.Rcon_Colored) {
+            if (!ConfigManager.config.Rcon_Colored) {
                 message = ChatColor.stripColor(message);
             }
 
@@ -94,7 +94,7 @@ public class RconHandler extends SimpleChannelInboundHandler<ByteBuf> {
         } else {
             String message = ChatColor.RED + "No such command";
             
-            if (!ConfigManager.main.Rcon_Colored) {
+            if (!ConfigManager.config.Rcon_Colored) {
                 message = ChatColor.stripColor(message);
             }
             

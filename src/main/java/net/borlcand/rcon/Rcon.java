@@ -2,15 +2,16 @@ package net.borlcand.rcon;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import net.borlcand.rcon.command.ReloadCommand;
 import net.borlcand.rcon.config.ConfigManager;
 import net.borlcand.rcon.server.RconServer;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
+
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Rcon extends Plugin {
 
@@ -31,13 +32,13 @@ public class Rcon extends Plugin {
     }
 
     public void startListener() {
-        if (!ConfigManager.main.Rcon_Enabled){
+        if (!ConfigManager.config.Rcon_Enabled){
             logger.warning("RCON disabled");
             return;
         }
         
-        SocketAddress address = new InetSocketAddress(ConfigManager.main.Rcon_Port);
-        rconServer = new RconServer(this.getProxy(), ConfigManager.main.Rcon_Password);
+        SocketAddress address = new InetSocketAddress(ConfigManager.config.Rcon_Port);
+        rconServer = new RconServer(this.getProxy(), ConfigManager.config.Rcon_Password);
 
         logger.log(Level.INFO, "Binding rcon to address: {0}...", address);
 
